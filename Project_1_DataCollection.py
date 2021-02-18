@@ -16,7 +16,7 @@ import os
 import string
 
 #print(os.getcwd())
-#os.chdir(r"C:\Users\griz1\Documents\Grad School\USC\Spring 2021\DSCI 551\Project")
+os.chdir(r"C:\Users\griz1\Documents\Grad School\USC\Spring 2021\DSCI 551\Project")
 
 #initialize Spotify API
 cid = 'a5465019d284413898d6128ad598b776'
@@ -37,6 +37,7 @@ artist_genre = []
 artist_popularity = []
 artist_followers = []
 
+#NOTE: the artist search is random so the results can be different 
 letters_list = list(string.ascii_lowercase)
 for letter in letters_list:
     search_artist = sp.search(q=f'artist:{letter}', type="artist", limit=10, market="US")
@@ -51,7 +52,7 @@ for letter in letters_list:
         followers = search_artist['artists']['items'][artist]['followers']['total']
         if name not in artist_name and "artist" not in name.lower():
             artist_id.append(spot_id)
-            #artist_data['artist_id'].append(spot_id) <-- for some reason includes duplicates
+            #artist_data['artist_id'].append(spot_id) <-- for some reason includes duplicates, so use list instead
             artist_name.append(name)
             artist_genre.append(genre)
             artist_popularity.append(popularity)
@@ -65,6 +66,7 @@ artist_df = pd.DataFrame(
      'artist_popularity': artist_popularity,
      'artist_followers': artist_followers,
     })
+print("Artist data collected.")
 
 #-> get a few albums from each artist 
 album_id = []
@@ -92,6 +94,7 @@ album_df = pd.DataFrame(
      'album_release_date': album_release_date,
      'artist_id': album_artist_id
     })
+print("Album data collected.")
 
 track_id = []
 track_name = []
@@ -165,6 +168,8 @@ track_df = pd.DataFrame(
      'track_explicit': track_explicit
     })
 audio_df = pd.DataFrame(track_features)
+print("Track data collected.")
+print("Audio data collected.")
 
 #practice joining them together
 # final_df = pd.merge(track_df, audio_df, how='left', left_on='track_id', right_on='track_id',
@@ -181,4 +186,4 @@ album_df.to_csv(r"data/album.csv", index=False,encoding="utf-8-sig", sep ='\t')
 track_df.to_csv(r"data/track.csv", index=False,encoding="utf-8-sig", sep ='\t')
 audio_df.to_csv(r"data/audio.csv", index=False,encoding="utf-8-sig", sep =',')
 
-
+print("Please find the collected data in the data folder.")

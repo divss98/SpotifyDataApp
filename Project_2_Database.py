@@ -73,3 +73,4 @@ cur.execute("""
 load_to_table('data/artist.csv', 'artist', sep='\t')
 con.commit() #to complete the transaction
 
+print("Data has been loaded to PostgreSQL tables.")
