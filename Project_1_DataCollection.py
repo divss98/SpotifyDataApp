@@ -172,18 +172,18 @@ print("Track data collected.")
 print("Audio data collected.")
 
 #practice joining them together
-# final_df = pd.merge(track_df, audio_df, how='left', left_on='track_id', right_on='track_id',
-#      suffixes=('_x', '_y')) #only 1 song without audio features
-# final_df2 = pd.merge(final_df, album_df, how='left', left_on='track_album_id', right_on='album_id',
-#      suffixes=('_x', '_y'))
-# final_df3 = pd.merge(final_df2, artist_df, how='left', left_on='track_artist_id', right_on='artist_id',
-#      suffixes=('_x', '_y'))
+final_df = pd.merge(track_df, audio_df, how='left', left_on='track_id', right_on='track_id',
+      suffixes=('_x', '_y')) #only 1 song without audio features
+final_df2 = pd.merge(final_df, album_df, how='left', left_on='track_album_id', right_on='album_id',
+      suffixes=('_x', '_y'))
+final_df3 = pd.merge(final_df2, artist_df, how='left', left_on='track_artist_id', right_on='artist_id',
+      suffixes=('_x', '_y'))
 
 #save dataframes as csv file... note separator is tab or comma
-#final_df3.to_csv(r"data/final.csv", index=False,encoding="utf-8-sig", sep ='\t')
-artist_df.to_csv(r"data/artist.csv", index=False,encoding="utf-8-sig", sep ='\t')
-album_df.to_csv(r"data/album.csv", index=False,encoding="utf-8-sig", sep ='\t')
-track_df.to_csv(r"data/track.csv", index=False,encoding="utf-8-sig", sep ='\t')
+final_df3.to_csv(r"data/final.csv", index=False,encoding="utf-8-sig", sep =',')
+artist_df.to_csv(r"data/artist.csv", index=False,encoding="utf-8-sig", sep =',')
+album_df.to_csv(r"data/album.csv", index=False,encoding="utf-8-sig", sep =',')
+track_df.to_csv(r"data/track.csv", index=False,encoding="utf-8-sig", sep =',')
 audio_df.to_csv(r"data/audio.csv", index=False,encoding="utf-8-sig", sep =',')
 
 print("Please find the collected data in the data folder.")

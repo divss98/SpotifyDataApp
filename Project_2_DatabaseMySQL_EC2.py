@@ -4,10 +4,10 @@ DSCI 551 Project: Database Creation
 02/17/2021
 """
 import os
-os.chdir(r"C:\Users\griz1\Documents\Grad School\USC\Spring 2021\DSCI 551\Project")
+#os.chdir(r"C:\Users\griz1\Documents\Grad School\USC\Spring 2021\DSCI 551\Project")
 
 #import packages to connect to MySQL
-import mysql.connector #pip install mysql-connector-python as well
+import mysql.connector
 import pandas as pd
 from sqlalchemy import create_engine
 import pymysql
@@ -23,7 +23,7 @@ con = mysql.connector.connect(
     host='localhost',
     database='mysql',
     user='root',
-    password='dsci551')
+    password='protossx1')
 
 cur = con.cursor()
 try: #if mydatabase exists already, then skip
@@ -37,12 +37,12 @@ con = mysql.connector.connect(
     host='localhost',
     database='mydatabase',
     user='root',
-    password='dsci551')
+    password='protossx1')
 
 #create sqlalchemy engine to import data to tables
 engine = create_engine("mysql+pymysql://{user}:{pw}@localhost/{db}"  
-                      .format(user="root", pw="dsci551", 
-                      db="mydatabase"))
+                      .format(user="root", pw="protossx1", 
+                      db="mydatabase", auth_plugin='mysql_native_password'))
 #insert dataframes to MySQL tables
 album.to_sql('album', con = engine, if_exists = 'replace', chunksize = 1000,index=False)
 artist.to_sql('artist', con = engine, if_exists = 'replace', chunksize = 1000,index=False)
