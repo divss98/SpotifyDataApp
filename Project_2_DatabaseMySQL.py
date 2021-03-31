@@ -17,18 +17,18 @@ album = pd.read_csv('final_data/album.csv', sep =',')
 artist = pd.read_csv('final_data/artist.csv', sep =',')
 track = pd.read_csv('final_data/track.csv', sep =',')
 audio = pd.read_csv('final_data/audio.csv', sep =',')
-#final = pd.read_csv('final_data/final.csv', sep =',')
+final = pd.read_csv('final_data/final.csv', sep =',')
 
 #connect to main database (mysql) to create a new database (mydatabase)
 con = mysql.connector.connect(
     host='localhost',
-    database='mysql',
+    #database='mysql',
     user='root',
     password='dsci551')
 
 cur = con.cursor()
 try: #if mydatabase exists already, then skip
-    cur.execute("CREATE DATABASE mydatabase")
+    cur.execute("CREATE DATABASE mydatabase;")
 except:
     print("mydatabase is already created. Skipping step.")
 con.commit() #to complete the transaction
@@ -49,21 +49,39 @@ album.to_sql('album', con = engine, if_exists = 'replace', chunksize = 1000,inde
 artist.to_sql('artist', con = engine, if_exists = 'replace', chunksize = 1000,index=False)
 track.to_sql('track', con = engine, if_exists = 'replace', chunksize = 1000,index=False)
 audio.to_sql('audio', con = engine, if_exists = 'replace', chunksize = 1000,index=False)
-#final.to_sql('final', con = engine, if_exists = 'replace', chunksize = 1000,index=False)
+final.to_sql('final', con = engine, if_exists = 'replace', chunksize = 1000,index=False)
+
+#add constraints to tables
+cur = con.cursor()
+cur.execute("ALTER TABLE artist MODIFY artist_id varchar(25);")
+cur.execute("ALTER TABLE album MODIFY album_id varchar(25);")
+cur.execute("ALTER TABLE album MODIFY album_artist_id varchar(25);")
+cur.execute("ALTER TABLE track MODIFY track_id varchar(25);")
+cur.execute("ALTER TABLE track MODIFY track_artist_id varchar(25);")
+cur.execute("ALTER TABLE track MODIFY track_album_id varchar(25);")
+cur.execute("ALTER TABLE audio MODIFY track_id varchar(25);")
+
+#add primary keys... can't add foreign keys because not all values in child table would be in parent
+cur.execute("ALTER TABLE artist ADD PRIMARY KEY (artist_id);")
+cur.execute("ALTER TABLE album ADD PRIMARY KEY (album_id);")
+cur.execute("ALTER TABLE track ADD PRIMARY KEY (track_id);")
+cur.execute("ALTER TABLE audio ADD PRIMARY KEY (track_id);")
+
+
+#cur.execute("ALTER TABLE roster ADD FULLTEXT index_name(Name);")
+#cur.execute(f'SELECT * FROM roster WHERE MATCH (name) AGAINST ("{search_name}" IN NATURAL LANGUAGE MODE);')
+
 
 print("Data has been loaded to MySQL tables.")
 
-
 #show that the process worked
-cur = con.cursor()
-
 print("These are the tables in the database:")
-cur.execute("SHOW TABLES")
+cur.execute("SHOW TABLES;")
 for x in cur:
     print(x)
     
 print("Testing: print two rows from album table")    
-cur.execute("SELECT * FROM album limit 2")
+cur.execute("SELECT * FROM album limit 2;")
 myresult = cur.fetchall()
 for x in myresult:
   print(x)    
