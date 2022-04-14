@@ -1,0 +1,253 @@
+@font-face {
+  font-family: Circular;
+  src: url('https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/circular-light.woff2') format('woff2'), url('https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/circular-light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: Circular-hbr;
+  src: url('https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/circular-light-hbr.woff2') format('woff2'), url('https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/circular-light-hbr.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: Circular;
+  src: url('https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/circular-book.woff2') format('woff2'), url('https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/circular-book.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: Circular-hbr;
+  src: url('https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/circular-book-hbr.woff2') format('woff2'), url('https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/circular-book-hbr.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: Circular;
+  src: url('https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/circular-medium.woff2') format('woff2'), url('https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/circular-medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: Circular-hbr;
+  src: url('https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/circular-medium-hbr.woff2') format('woff2'), url('https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/circular-medium-hbr.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: Circular;
+  src: url('https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/circular-bold.woff2') format('woff2'), url('https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/circular-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: Circular-hbr;
+  src: url('https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/circular-bold-hbr.woff2') format('woff2'), url('https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/circular-bold-hbr.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: Circular;
+  src: url('https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/circular-black.woff2') format('woff2'), url('https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/circular-black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: Circular-hbr;
+  src: url('https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/circular-black-hbr.woff2') format('woff2'), url('https://sp-bootstrap.global.ssl.fastly.net/8.9.0/fonts/circular-black-hbr.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Circular', Helvetica, Arial, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  font-style: normal;
+  color: #ffffff;
+  outline: none;
+}
+
+a{
+  text-decoration: none;
+  color: #ffffff;
+}
+
+
+#bg-main {
+  position: relative;
+  overflow: hidden;
+  background: rgb(239,55,164);
+  background: linear-gradient(180deg, rgba(239,55,164,1) -50%, rgba(244,129,114,1) 35%, rgba(250,230,45,1) 130%);
+  margin-top: -80px;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+}
+
+#bg-main .container {
+  width: 1610px;
+  height: 1523px;
+  background: url('../images/hero-burst.svg') repeat;
+  position: absolute;
+  left: 50%;
+  background-position: top -410px center;
+  -webkit-transform: translate(-50%, 0%);
+  -ms-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
+  overflow: hidden;
+  z-index: 0;
+}
+
+#bg-main .container .main-hero-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+
+}
+
+#bg-main .container .main-hero-container .main-hero {
+  width: 100vw;
+  max-width: 713px;
+  margin: auto 0;
+  align-items: center
+
+}
+
+#bg-main .container .main-hero-container .main-hero h1 {
+  font-family: 'Circular-hbr';
+  text-align: center;
+  font-size: 80px;
+  font-weight: 900;
+  line-height: 92px;
+  letter-spacing: -3.2px;
+  margin: 0 0 0 0;
+}
+
+#bg-main .container .main-hero-container .main-hero h4 {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 19.8px;
+  margin: 7px 0 34px 0;
+}
+
+#bg-main .container .main-hero-container .main-hero .btn-get-spotify-free {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#bg-main .container .main-hero-container .main-hero .btn-get-spotify-free a {
+  padding: 16px 48px 18px 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+  background: hsl(141, 73%, 42%);
+  border-radius: 500px;
+  border: 1px;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  transition: all .4s ease;
+}
+
+#bg-main .container .main-hero-container .main-hero a:active,
+#bg-main .container .main-hero-container .main-hero a:hover {
+  background: hsl(141, 76%, 48%);
+  color: #ffffff !important;
+
+}
+
+#bg-main .container .main-hero-container .main-hero a:focus {
+  background: #1aa64b;
+  color: #ffffff !important;
+}
+
+#bg-main .container .main-hero-container .main-hero .box1 input{
+  all: unset;
+  font: 16px system-ui;
+  color: black;
+  box-shadow: 2px 5px 8px 2px rgba(0,0,0,5);
+  height: 60px;
+  width: 200px;
+  text-align: left;
+  /* padding: 10px 10px; */
+  padding-left: 30px;
+  padding-right: 30px
+}
+
+#bg-main .container .main-hero-container .main-hero .box select{
+  all: unset;
+  font: 16px system-ui;
+  color: black;
+  border:1px black;
+  box-shadow: 2px 5px 8px 2px rgba(0,0,0,5);
+  height: 60px;
+  width: 200px;
+  /* padding: 10px 10px; */
+  padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px
+}
+
+#bg-main .container .main-hero-container .main-hero .box{
+  /* all: unset;
+  font: 16px system-ui;
+  color: black; */
+  border:1px black;
+  text-align: center;
+  word-wrap: normal;
+  align-items: center;
+
+}
+#bg-main .container .main-hero-container .main-hero .box1{
+  /* all: unset;
+  font: 16px system-ui;
+  color: black; */
+  border:1px black;
+  text-align: center;
+  word-wrap: normal;
+  align-items: center;
+
+}
+
+#bg-main .container .main-hero-container .main-hero .box option{
+  font: 18px system-ui;
+  color: black;
+  height: 100%;
+  width: 300px;
+text-align: right;
+  /* padding: 10px 10px; */
+
+}
+
+#bg-main .container .main-hero-container .main-hero .box input::placeholder {
+  color: black;
+  opacity: 0.7;
+  text-align: center
+}
+
+#bg-main .container .main-hero-container .main-hero .box button {
+  all: unset;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  text-align: right
+}
+
+#bg-main .container .main-hero-container .main-hero .viewBox   button svg {
+  color: black;
+  fill: black;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  align-self: right;
+}
