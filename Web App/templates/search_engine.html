@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/main_search.css') }}">
+    <link rel="stylesheet" media="screen and (max-width: 1200px)" href="css/laptop.css">
+    <link rel="stylesheet" media="screen and (max-width: 990px)" href="css/tablet.css">
+    <link rel="stylesheet" media="screen and (max-width: 766px)" href="css/tablet-small.css">
+    <link rel="stylesheet" media="screen and (max-width: 477px)" href="css/mobile.css">
+    <title>Music for everyone - Spotify</title>
+    <link rel="shortcut icon" href="images/logo.png" type="image/png">
+    <script data-ad-client="ca-pub-7633662643201068" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+
+      <div id="bg-main">
+        <div class="container">
+            <div class="main-hero-container">
+                <div class="main-hero">
+                  <h1>Spotify</h1>
+                  <h4>Search Engine</h4>
+                  <div class="box">
+                    <form action="/result" method="POST">
+                    <select id="choice" name="choice" class="choice" required>
+                      <option value="" selected disabled>Click to Choose a Category</option>
+                      <option value="Artists">Artists</option>
+                      <option value="Songs">Songs</option>
+                      <option value="Album">Album</option>
+                      <option value="Genre">Genre</option>
+                    </select>
+                  </div><br>
+                  <div class="box1">
+  <input type="text" id="query" name="query" placeholder="Enter a keyword..">
+</div><br>
+<div class="btn-get-spotify-free">
+    <button href="/" class="main-hero-btn" type="submit"><a>Search</button></a>
+</div></form>
+
+                                </div>
+              </div>
+
+        </div>
+
+      </div>
+      <div id="results">
+{% include 'result.html' %}
+</div>
+</body>
+</html>
